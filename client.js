@@ -42,10 +42,17 @@ const employees = [
 
 console.log( employees );
 
+function employeeLoop (array) {
+  for (let i = 0; i < array.length; i++) {
+    newObjects(array[i]);
+  }
+} // end employeeLoop
 
+// call function to test
+// employeeLoop(employees);
 
 // Steps break down
-// for loop to loop over employee array
+// for loop to loop over employee array and input into function
 // log each employee
 
 // function that takes each employee object and returns a new object 
@@ -53,6 +60,30 @@ console.log( employees );
 // The 'bonusPercentage' property should contain the bonus percentage the employee is to receive. See section below for calculation instructions.
 // The 'totalCompensation' property should be the adjusted annual compensation (base annual + bonus)
 // The 'totalBonus' should be the employee's total bonus rounded to the nearest dollar.
+
+
+function bonusCalculator(employee) {
+
+  let bonus = 0;
+  if (employee.reviewRating <= 2) {
+    bonus = 0;
+    return bonus;
+  } else if (employee.reviewRating = 3) {
+      bonus = employee.annualSalary * 0.04;
+      return bonus;
+  } else if (employee.reviewRating = 4) {
+      bonus = employee.annualSalary * 0.06;
+      return bonus;
+  } else if (employee.reviewRating = 5) {
+      bonus = employee.annualSalary * 0.10;
+      return bonus;
+  } else {
+      console.log('ERROR');
+  }
+}// end bonusCalculator
+
+
+console.log('testing bonusCalulator function', bonusCalculator(employees[0]));
 
 // Bonus function (switch...case)
 // Those who have a rating of a 2 or below should not receive a bonus.

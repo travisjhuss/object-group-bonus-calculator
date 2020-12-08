@@ -40,9 +40,9 @@ const employees = [
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
-console.log( employees );
+console.log(employees);
 
-function employeeLoop (array) {
+function employeeLoop(array) {
   for (let i = 0; i < array.length; i++) {
     newObjects(array[i]);
   }
@@ -65,31 +65,95 @@ function employeeLoop (array) {
 function bonusCalculator(employee) {
 
   let bonus = 0;
-  if (employee.reviewRating <= 2) {
-    bonus = 0;
-    return bonus;
-  } else if (employee.reviewRating = 3) {
+
+  if (employee.employeeNumber.length === 4 && employee.annualSalary > 65000) {
+    if (employee.reviewRating <= 2) {
       bonus = employee.annualSalary * 0.04;
-      return bonus;
-  } else if (employee.reviewRating = 4) {
-      bonus = employee.annualSalary * 0.06;
-      return bonus;
-  } else if (employee.reviewRating = 5) {
+
+    } else if (employee.reviewRating === 3) {
+      bonus = employee.annualSalary * 0.08;
+
+    } else if (employee.reviewRating === 4) {
       bonus = employee.annualSalary * 0.10;
-      return bonus;
-  } else {
+
+    } else if (employee.reviewRating === 5) {
+      bonus = employee.annualSalary * 0.13;
+
+    } else {
       console.log('ERROR');
+
+    }
+  } else if (employee.employeeNumber.length === 4) {
+    if (employee.reviewRating <= 2) {
+      bonus = employee.annualSalary * 0.05;
+
+    } else if (employee.reviewRating === 3) {
+      bonus = employee.annualSalary * 0.09;
+
+    } else if (employee.reviewRating === 4) {
+      bonus = employee.annualSalary * 0.11;
+
+    } else if (employee.reviewRating === 5) {
+      bonus = employee.annualSalary * 0.13;
+
+    } else {
+      console.log('ERROR');
+    }
+  } else if (employee.annualSalary > 65000) {
+    if (employee.reviewRating <= 2) {
+      bonus = 0;
+
+    } else if (employee.reviewRating === 3) {
+      bonus = employee.annualSalary * 0.03;
+
+    } else if (employee.reviewRating === 4) {
+      bonus = employee.annualSalary * 0.05;
+
+    } else if (employee.reviewRating === 5) {
+      bonus = employee.annualSalary * 0.09;
+
+    } else {
+      console.log('ERROR');
+    }
+  } else {
+    if (employee.reviewRating <= 2) {
+      bonus = 0;
+
+    } else if (employee.reviewRating === 3) {
+      bonus = employee.annualSalary * 0.04;
+
+    } else if (employee.reviewRating === 4) {
+      bonus = employee.annualSalary * 0.06;
+
+    } else if (employee.reviewRating === 5) {
+      bonus = employee.annualSalary * 0.10;
+
+    } else {
+      console.log('ERROR');
+    }
   }
-}// end bonusCalculator
+  return bonus;
+} // end bonusCalculator
 
 
-console.log('testing bonusCalulator function', bonusCalculator(employees[0]));
+console.log('testing bonusCalulator function', bonusCalculator(employees[0])); // Should be 4230
+console.log('testing bonusCalulator function', bonusCalculator(employees[1])); // Should be 3810
+console.log('testing bonusCalulator function', bonusCalculator(employees[2])); // Should be 9717.5
 
-// Bonus function (switch...case)
+// Bonus function (if else)
 // Those who have a rating of a 2 or below should not receive a bonus.
 // Those who have a rating of a 3 should receive a base bonus of 4% of their base annual income.
 // Those who have a rating of a 4 should receive a base bonus of 6% of their base annual income.
 // Those who have a rating of a 5 should receive a base bonus of 10% of their base annual income.
+
+
 // If their employee number is 4 digits long, this means they have been with the company for longer than 15 years, and should receive an additional 5%.
+
 // However, if their annual income is greater than $65,000, they should have their bonus adjusted down 1%.
 // No bonus can be above 13% or below 0% total.
+
+// conditions
+// - 4 digit number && salary > 65k
+// - 4 digit number
+// - salary > 65k
+// - none of the above

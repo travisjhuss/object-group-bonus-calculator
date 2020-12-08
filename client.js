@@ -44,12 +44,12 @@ console.log(employees);
 
 function employeeLoop(array) {
   for (let i = 0; i < array.length; i++) {
-    newObjects(array[i]);
+    console.log('Testing:', bonusCalculator(array[i]));
   }
 } // end employeeLoop
 
 // call function to test
-// employeeLoop(employees);
+employeeLoop(employees);
 
 // Steps break down
 // for loop to loop over employee array and input into function
@@ -63,22 +63,27 @@ function employeeLoop(array) {
 
 
 function bonusCalculator(employee) {
-
+  let totalCompen = 0;
+  let bonusPercent = 0;
   let bonus = 0;
 
   if (employee.employeeNumber.length === 4 && employee.annualSalary > 65000) {
     if (employee.reviewRating <= 2) {
       bonus = employee.annualSalary * 0.04;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0.04;
     } else if (employee.reviewRating === 3) {
       bonus = employee.annualSalary * 0.08;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0.08;
     } else if (employee.reviewRating === 4) {
       bonus = employee.annualSalary * 0.10;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0.10;
     } else if (employee.reviewRating === 5) {
       bonus = employee.annualSalary * 0.13;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0.13;
     } else {
       console.log('ERROR');
 
@@ -86,59 +91,71 @@ function bonusCalculator(employee) {
   } else if (employee.employeeNumber.length === 4) {
     if (employee.reviewRating <= 2) {
       bonus = employee.annualSalary * 0.05;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0.05;
     } else if (employee.reviewRating === 3) {
       bonus = employee.annualSalary * 0.09;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0.09;
     } else if (employee.reviewRating === 4) {
       bonus = employee.annualSalary * 0.11;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0.11;
     } else if (employee.reviewRating === 5) {
       bonus = employee.annualSalary * 0.13;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0.13;
     } else {
       console.log('ERROR');
     }
   } else if (employee.annualSalary > 65000) {
     if (employee.reviewRating <= 2) {
       bonus = 0;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0;
     } else if (employee.reviewRating === 3) {
       bonus = employee.annualSalary * 0.03;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0.03;
     } else if (employee.reviewRating === 4) {
       bonus = employee.annualSalary * 0.05;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0.05;
     } else if (employee.reviewRating === 5) {
       bonus = employee.annualSalary * 0.09;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0.09;
     } else {
       console.log('ERROR');
     }
   } else {
     if (employee.reviewRating <= 2) {
       bonus = 0;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0;
     } else if (employee.reviewRating === 3) {
       bonus = employee.annualSalary * 0.04;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0.04;
     } else if (employee.reviewRating === 4) {
       bonus = employee.annualSalary * 0.06;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0.06;
     } else if (employee.reviewRating === 5) {
       bonus = employee.annualSalary * 0.10;
-
+      totalCompen = Number(employee.annualSalary) + bonus;
+      bonusPercent = 0.10;
     } else {
       console.log('ERROR');
     }
   }
-  return bonus;
+  return {name: employee.name, bonusPercentage: bonusPercent, totalCompensation: totalCompen, totalBonus: bonus};
 } // end bonusCalculator
 
 
-console.log('testing bonusCalulator function', bonusCalculator(employees[0])); // Should be 4230
-console.log('testing bonusCalulator function', bonusCalculator(employees[1])); // Should be 3810
-console.log('testing bonusCalulator function', bonusCalculator(employees[2])); // Should be 9717.5
+// console.log('testing bonusCalulator function', bonusCalculator(employees[0])); // Should be 4230
+// console.log('testing bonusCalulator function', bonusCalculator(employees[1])); // Should be 3810
+// console.log('testing bonusCalulator function', bonusCalculator(employees[2])); // Should be 9717.5
 
 // Bonus function (if else)
 // Those who have a rating of a 2 or below should not receive a bonus.
